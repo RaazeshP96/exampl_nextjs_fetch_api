@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from "../components/Header"
 import axios from "axios"
+import Link from "next/link"
 export default function Home({posts}) {
   return (
     <div >
@@ -11,7 +12,9 @@ export default function Home({posts}) {
       <main >
           <Header />
           {posts.map(post=>(
-              <li key={post.userId}>{post.title}</li>
+              <li key={post.userId}>
+                <Link href={`/page?id=${post.id}`}><a>{post.title}</a></Link>
+                </li>
           ))}
        </main>   
     </div>
